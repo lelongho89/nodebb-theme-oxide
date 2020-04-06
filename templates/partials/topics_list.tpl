@@ -4,40 +4,15 @@
 	<li component="category/topic" class="row clearfix {function.generateTopicClass} category-item" <!-- IMPORT partials/data/category.tpl -->>
 		<meta itemprop="name" content="{function.stripTags, title}">
 
-		<div class="col-md-1 col-xs-12 col-sm-1 hidden-xs avatar">
-			<!-- IF showSelect -->
-			<div class="select avatar" component="topic/select" title="{topics.user.username}">
-				<!-- IF topics.thumb -->
-				<img src="{topics.thumb}" class="user-img not-responsive" />
-				<!-- ELSE -->
-				<!-- IF topics.user.picture -->
-				<img component="user/picture" data-uid="{topics.user.uid}" src="{topics.user.picture}" class="user-img not-responsive" />
-				<!-- ELSE -->
-				<div class="user-icon " style="background-color: {topics.user.icon:bgColor};">{topics.user.icon:text}</div>
-				<!-- ENDIF topics.user.picture -->
-				<!-- ENDIF topics.thumb -->
-				<i class="fa fa-check"></i>
-			</div>
-			<!-- ENDIF showSelect -->
-
-			<!-- IF !showSelect -->
-			<a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->"
-			 class="pull-left">
-				<!-- IF topics.thumb -->
-				<img src="{topics.thumb}" class="user-img not-responsive" />
-				<!-- ELSE -->
-				<!-- IF topics.user.picture -->
-				<img component="user/picture" data-uid="{topics.user.uid}" src="{topics.user.picture}" class="user-img not-responsive" />
-				<!-- ELSE -->
-				<div class="user-icon" style="background-color: {topics.user.icon:bgColor};">{topics.user.icon:text}</div>
-				<!-- ENDIF topics.user.picture -->
-				<!-- ENDIF topics.thumb -->
-			</a>
-			<!-- ENDIF !showSelect -->
-		</div>
-
-		<div class="col-md-8 col-xs-12 col-sm-8 clearfix category-details">
+		<div class="col-md-9 col-xs-12 col-sm-9 clearfix category-details">
 			<div class="content">
+				<!-- IF showSelect -->
+				<div class="hidden-xs CategoryIcon contentItem">
+					<!-- IF topics.thumb -->
+					<div class="icon" style="background-image: url({topics.thumb})"></div>
+					<!-- ENDIF topics.thumb -->
+				</div>
+				<!-- ENDIF showSelect -->
 				<div class="col-md-8 col-xs-10 show-separator contentItem">
 					<div class="pnt">
 						<i component="topic/pinned" class="fa fa-thumb-tack <!-- IF !topics.pinned -->hide<!-- ENDIF !topics.pinned -->" title="[[topic:pinned]]"></i>
